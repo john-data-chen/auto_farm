@@ -58,10 +58,5 @@ PUNCTUDURATION_1 = 0.4
 PUNCTUDURATION_2 = 0.9
 
 [SLACK]
-RD_TEAM = https://hooks.slack.com/services/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
-CRAWLER = https://hooks.slack.com/services/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
-EBCINSIGHT-CART = https://hooks.slack.com/services/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
-EBC_ROBOT = https://hooks.slack.com/services/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
-EBC_IMPORTANT_INFO = https://hooks.slack.com/services/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
-EBC_PM = https://hooks.slack.com/services/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
-EBC_PM_TEST = https://hooks.slack.com/services/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
+CRAWLER_TEST = https://hooks.slack.com/services/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
+AUTO_FARM = https://hooks.slack.com/services/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
