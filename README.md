@@ -1,0 +1,34 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/grade/6996f5d45d4d42c9afa27e69eabc35e3)](https://www.codacy.com)
+[![codecov.io](https://codecov.io/gitlab/ebc/Jarvis_alpha/coverage.svg?token=fCHY6PIvnJ&branch=master)](https://codecov.io/gitlab/ebc/Jarvis_alpha?branch=master)
+
+# Install
+
+### Package requirement
+   - System Packages
+	1. Pillow >= 2.0.0 supports Python versions 2.6, 2.7, 3.2, 3.3, 3.4 (we use 2.7)
+	2. sudo apt-get install python-dev python-setuptools
+	3. sudo apt-get install libjpeg-dev (there will be an error when pip install Pillow without libjpeg)
+	4. sudo aptitude install libfreetype6-dev (there will be an error when using Pillow without libfreetype6)
+   - Python packages
+	1. virtualenv venv
+	2. source venv/bin/activate
+	3. pip install -r requirements.txt
+     
+# Execution jarvis.py
+### Targets are one of those: earthquake, gas_predict, gas_price, tw_stock
+
+### Start crawler and output to slack and txt file, for example:
+  - python jarvis.py earthquake
+
+# Unit test of Jarvis
+### test packages are in folder: tests
+
+### Start unit test, for example:
+  -  py.test -s tests/test_gas_price_crawler.py -v
+
+### test_tw_stock_crawler CI issue
+  -  CI can't read the json log file which market open check saved
+  -  open config.txt, modify TW_STOCK_OPEN_CHECK = off
+
+# Deploy or git pull Jarvis
+  -  open config.txt, modify TW_STOCK_OPEN_CHECK = on

@@ -1,0 +1,67 @@
+[TARGET_TYPE]
+TARGETS_WITH_IMG = gas_price, gas_predict, tw_stock
+
+[PM_VERIFIED_PASS]
+TARGETS_ONLINE = earthquake, gas_price, gas_predict, tw_stock
+PASS_TO_FORMAL_CHANNEL = earthquake, gas_price, gas_predict
+
+[LOG]
+MAX_LOGS = 5
+MAX_OLD_ARTICLES = 5
+MAX_MP3 = 5
+MAX_INFO_IMG = 10
+
+[FOLDER_PATH]
+ROOT_PATH = ../Jarvis_alpha/
+LOGS_PATH = checklog/logs/
+NO_UPDATE_PATH = /no_update/
+ARTICLES_PATH = editor/articles/
+TEMPLATES_PATH = ./editor/templates/
+RSS_PATH = rss/
+TTS_MP3_PATH = tts/mp3/
+INFO_IMG_PATH = info_img/outputs/
+IMG_ASSETS_PATH = info_img/assets/
+INSIGHT_NEWS_RSS_PATH = ../insight_api/static/assets/pics/news_rss/
+INSIGHT_PIC_PATH = static/assets/pics/news_rss/
+
+[URL]
+CPC_PRICE = http://new.cpc.com.tw/Home/
+FPCC_PRICE = http://www.fpcc.com.tw/tc/affiliate.php
+EARTHQUAKE_TOTAL = http://scweb.cwb.gov.tw/Page.aspx?ItemId=20&loc=tw&adv=1
+EARTHQUAKE_DETAIL = http://scweb.cwb.gov.tw/Page.aspx
+GAS_PREDICT = http://gas.goodlife.tw/
+TW_STOCK = https://tw.stock.yahoo.com/
+
+[TEST_URL]
+EARTHQUAKE_TOTAL = http://scweb.cwb.gov.tw/Page.aspx?ItemId=20&Date=201502
+CPC_PRICE = http://0.0.0.0:8050/static/jarvis_test_files/cpc.html
+FPCC_PRICE = http://0.0.0.0:8050/static/jarvis_test_files/fpcc.html
+
+[CRAWLER]
+USER-AGENT = Mozilla/5.0 (X11; Linux x86_64; rv:44.0) Gecko/20100101 Firefox/44.0
+TW_STOCK_OPEN_CHECK = off
+TW_STOCK_CHECK_BEFORE_HOUR = 13
+
+[RSS]
+EARTHQUAKE_LOGO = http://d17ixjpazu3j94.cloudfront.net/images/2016/01/03/14518300845558IdV6dhXIbx.jpg
+INSIGHT_TEST_URL = http://insight.ebcbuzz.com:8050/static/assets/pics/news_rss/
+INSIGHT_PRO_URL = http://insight.ebcbuzz.com/static/assets/pics/news_rss/
+
+[TTS]
+CYBERON_URL = http://vois3.cyberon.com.tw/cloud_tts/gen_tts_content.php
+LANGUAGE = zh-TW
+SPEAKER = DaiYu
+SPEED = 0.9
+GAIN = 1
+F0 = 1
+PUNCTUDURATION_1 = 0.4
+PUNCTUDURATION_2 = 0.9
+
+[SLACK]
+RD_TEAM = https://hooks.slack.com/services/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
+CRAWLER = https://hooks.slack.com/services/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
+EBCINSIGHT-CART = https://hooks.slack.com/services/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
+EBC_ROBOT = https://hooks.slack.com/services/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
+EBC_IMPORTANT_INFO = https://hooks.slack.com/services/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
+EBC_PM = https://hooks.slack.com/services/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
+EBC_PM_TEST = https://hooks.slack.com/services/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
