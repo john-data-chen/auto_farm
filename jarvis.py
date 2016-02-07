@@ -5,7 +5,6 @@ from checklog.auto_check import *
 from crawler.crawler import *
 from editor.editor import *
 from tts.tts import *
-from info_img import img_copyer
 
 
 # set encoding to utf-8, then we can input traditional and simplified Chinese
