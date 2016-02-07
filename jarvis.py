@@ -40,7 +40,6 @@ templates_path = config_parser.get('FOLDER_PATH', 'TEMPLATES_PATH')
 rss_path = config_parser.get('FOLDER_PATH', 'RSS_PATH')
 tts_mp3_path = config_parser.get('FOLDER_PATH', 'TTS_MP3_PATH')
 info_img_path = config_parser.get('FOLDER_PATH', 'INFO_IMG_PATH')
-insight_news_rss_path = config_parser.get('FOLDER_PATH', 'INSIGHT_NEWS_RSS_PATH')
 max_logs = config_parser.getint('LOG', 'MAX_LOGS')
 max_old_articles = config_parser.getint('LOG', 'MAX_OLD_ARTICLES')
 max_mp3 = config_parser.getint('LOG', 'MAX_MP3')
@@ -48,8 +47,7 @@ max_info_img = config_parser.getint('LOG', 'MAX_INFO_IMG')
 targets_with_img = config_parser.get('TARGET_TYPE', 'TARGETS_WITH_IMG').split(", ")
 
 # auto check and clean
-check_folders(logs_path, no_update_path, articles_path, rss_path, tts_mp3_path, info_img_path, insight_news_rss_path,
-				target)
+check_folders(logs_path, no_update_path, articles_path, rss_path, tts_mp3_path, info_img_path, target)
 clean_logs(logs_path, target, no_update_path, max_logs)
 clean_articles(articles_path, target, max_old_articles)
 clean_mp3(tts_mp3_path, target, max_mp3)
@@ -92,6 +90,3 @@ if target in targets_with_img:
 		tw_stock_editor(
 				tw_stock_crawler(logs_path, no_update_path, target, url),
 				logs_path, target, no_update_path, articles_path, templates_path, rss_path)
-
-	# copy img after output txt and send to slack
-	img_copyer.copy(info_img_path, rss_path, insight_news_rss_path, target)

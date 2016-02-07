@@ -36,12 +36,8 @@ def txt_files(articles_path, rss_path, target, file_time, title, text, last_pubD
 
 	if target in targets_with_img:
 		# detect which folder
-		if os.getcwd() == "/home/charlie/public_html/production/Jarvis_alpha":
-			insight_news_rss_url = config_parser.get('RSS', 'INSIGHT_PRO_URL')
-		else:
-			insight_news_rss_url = config_parser.get('RSS', 'INSIGHT_TEST_URL')
 		random_int = random.sample(range(100000), 1)
-		text_to_slack = insight_news_rss_url + target + "/last_" + target + ".jpg" + "?" + str(random_int[0]) + "\n" + \
+		text_to_slack = target + "/last_" + target + ".jpg" + "?" + str(random_int[0]) + "\n" + \
 						title + "\n" + text.replace("<br>", "")
 
 	# choose which slack channel to send

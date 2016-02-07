@@ -21,8 +21,6 @@ RSS_PATH = rss/
 TTS_MP3_PATH = tts/mp3/
 INFO_IMG_PATH = info_img/outputs/
 IMG_ASSETS_PATH = info_img/assets/
-INSIGHT_NEWS_RSS_PATH = ../insight_api/static/assets/pics/news_rss/
-INSIGHT_PIC_PATH = static/assets/pics/news_rss/
 
 [URL]
 CPC_PRICE = http://new.cpc.com.tw/Home/
@@ -44,8 +42,6 @@ TW_STOCK_CHECK_BEFORE_HOUR = 13
 
 [RSS]
 EARTHQUAKE_LOGO = http://d17ixjpazu3j94.cloudfront.net/images/2016/01/03/14518300845558IdV6dhXIbx.jpg
-INSIGHT_TEST_URL = http://insight.ebcbuzz.com:8050/static/assets/pics/news_rss/
-INSIGHT_PRO_URL = http://insight.ebcbuzz.com/static/assets/pics/news_rss/
 
 [TTS]
 CYBERON_URL = http://vois3.cyberon.com.tw/cloud_tts/gen_tts_content.php
