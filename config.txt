@@ -32,8 +32,6 @@ TW_STOCK = https://tw.stock.yahoo.com/
 
 [TEST_URL]
 EARTHQUAKE_TOTAL = http://scweb.cwb.gov.tw/Page.aspx?ItemId=20&Date=201502
-CPC_PRICE = http://0.0.0.0:8050/static/jarvis_test_files/cpc.html
-FPCC_PRICE = http://0.0.0.0:8050/static/jarvis_test_files/fpcc.html
 
 [CRAWLER]
 USER-AGENT = Mozilla/5.0 (X11; Linux x86_64; rv:44.0) Gecko/20100101 Firefox/44.0
