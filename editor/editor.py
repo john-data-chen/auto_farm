@@ -249,4 +249,4 @@ def tw_stock_editor(crawler_tuple, logs_path, target, no_update_path, articles_p
 	# output txt files and send to slack
 	output.txt_files(articles_path, rss_path, target, file_time, title, text, last_pubDate)
 	# save to mongodb
-	db_manager.save_to_db(articles_path, rss_path, target, file_time, title, text, last_pubDate)
+	db_manager.save_to_db(target, file_time, title, text)
