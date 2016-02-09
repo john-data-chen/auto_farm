@@ -9,7 +9,7 @@ PASS_TO_FORMAL_CHANNEL = earthquake, gas_price, gas_predict
 MAX_LOGS = 5
 MAX_OLD_ARTICLES = 5
 MAX_MP3 = 5
-MAX_INFO_IMG = 10
+MAX_INFO_IMG = 5
 
 [FOLDER_PATH]
 ROOT_PATH = ../Jarvis_alpha/
@@ -21,6 +21,9 @@ RSS_PATH = rss/
 TTS_MP3_PATH = tts/mp3/
 INFO_IMG_PATH = info_img/outputs/
 IMG_ASSETS_PATH = info_img/assets/
+
+[MONGODB]
+URI = mongodb://localhost:27017/
 
 [URL]
 CPC_PRICE = http://new.cpc.com.tw/Home/
