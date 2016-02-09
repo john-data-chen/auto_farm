@@ -5,7 +5,6 @@ from checklog.auto_check import *
 from crawler.crawler import *
 from editor.editor import *
 from tts.tts import *
-from pymongo import MongoClient
 
 
 # set encoding to utf-8, then we can input traditional and simplified Chinese
@@ -45,7 +44,6 @@ max_old_articles = config_parser.getint('LOG', 'MAX_OLD_ARTICLES')
 max_mp3 = config_parser.getint('LOG', 'MAX_MP3')
 max_info_img = config_parser.getint('LOG', 'MAX_INFO_IMG')
 targets_with_img = config_parser.get('TARGET_TYPE', 'TARGETS_WITH_IMG').split(", ")
-mongodb_uri = config_parser.get('MONGODB', 'URI')
 
 # auto check and clean
 check_folders(logs_path, no_update_path, articles_path, rss_path, tts_mp3_path, info_img_path, target)
@@ -53,11 +51,6 @@ clean_logs(logs_path, target, no_update_path, max_logs)
 clean_articles(articles_path, target, max_old_articles)
 clean_mp3(tts_mp3_path, target, max_mp3)
 check_template(templates_path, target)
-
-# connect to mongodb
-client = MongoClient(mongodb_uri)
-db = client['auto_farm_db']
-collection = db[target]
 
 # load configs based target
 # target without info img
