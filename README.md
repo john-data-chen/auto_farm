@@ -13,7 +13,27 @@
 	1. virtualenv venv
 	2. source venv/bin/activate
 	3. pip install -r requirements.txt
-     
+   - install MongoDb on Ubuntu LTS (14.04)
+	1. sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+	2. echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+	3. sudo apt-get update
+	4. sudo apt-get install -y mongodb-org
+
+# MongoDB
+### Start MongoDB
+   - sudo service mongod start
+
+### Verify that MongoDB has started successfully
+Verify that the mongod process has started successfully by checking the contents of the log file at /var/log/mongodb/mongod.log for a line reading
+[initandlisten] waiting for connections on port <port>
+where <port> is the port configured in /etc/mongod.conf, 27017 by default.
+
+### Stop MongoDB
+   - sudo service mongod stop
+
+### Restart MongoDB
+   - sudo service mongod restart
+
 # Execution jarvis.py
 ### Targets are one of those: earthquake, gas_predict, gas_price, tw_stock
 
