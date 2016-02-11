@@ -3,10 +3,10 @@ import sys
 import datetime
 from checklog import log_save_check
 import output
-import db_manager
 from info_img import process
 import json
 from pprint import pprint
+import db_manager
 
 
 # set encoding to utf-8, then we can input traditional and simplified Chinese
@@ -241,6 +241,8 @@ def tw_stock_editor(crawler_tuple, logs_path, target, no_update_path, articles_p
 									financial_ch_percent, financial_volume)
 	print text.encode('utf-8').replace("<br>", "")
 
+	# query mongodb to check whether this post existed or not, if not, save to database
+	db_manager.save_tw_stock(file_time, title, text, twi_volume, otc_volume, electronic_volume, financial_volume)
 	# produce info img
 	process.tw_stock_img(target, file_time, twi, twi_ch_sign, twi_ch_pt, twi_ch_percent, twi_volume,
 						otc, otc_ch_sign, otc_ch_pt, otc_volume,
@@ -248,5 +250,3 @@ def tw_stock_editor(crawler_tuple, logs_path, target, no_update_path, articles_p
 						financial, financial_ch_sign, financial_ch_pt, financial_volume)
 	# output txt files and send to slack
 	output.txt_files(articles_path, rss_path, target, file_time, title, text, last_pubDate)
-	# save to mongodb
-	db_manager.save_to_db(target, file_time, title, text)

@@ -21,10 +21,18 @@ client = MongoClient(mongodb_uri)
 db = client['auto_farm_db']
 
 
-def save_to_db(target, file_time, title, text):
-	post = {"created_time": file_time, "title": title, "text": text}
-	posts = db[target]
-	try:
-		post_id = posts.insert_one(post).inserted_id
-	except Exception as e:
-		print e
+def save_tw_stock(file_time, title, text, twi_volume, otc_volume, electronic_volume, financial_volume):
+	posts = db.tw_stock
+	if posts.find({"twi_volume": twi_volume, "otc_volume": otc_volume, "electronic_volume": electronic_volume,
+	"financial_volume": financial_volume}).count() == 0:
+		doc = {"created_time": file_time, "title": title, "text": text, "twi_volume": twi_volume,
+		"otc_volume": otc_volume, "electronic_volume": electronic_volume, "financial_volume": financial_volume}
+		try:
+			posts.insert_one(doc).inserted_id
+		except Exception as e:
+			print "save to database fail: " + e
+			print "exit..."
+			exit()
+	else:
+		print "A same post existed in database."
+		exit()
