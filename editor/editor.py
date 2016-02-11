@@ -44,6 +44,7 @@ def earthquake_editor(crawler_tuple, logs_path, target, no_update_path, articles
 	print scale
 	print location
 	print area_max
+	print img_url
 	"""
 
 	# check old date to confirm update
@@ -66,6 +67,8 @@ def earthquake_editor(crawler_tuple, logs_path, target, no_update_path, articles
 	text = texts_in_js["text"] % (date, day, time, scale, location, depth, area_max)
 	print text.encode('utf-8').replace("<br>", "")
 
+	# query mongodb to check whether this post existed or not, if not, save to database
+	db_manager.save_earthquake(file_time, title, text, img_url)
 	# output txt files and send to slack
 	output.txt_files(articles_path, rss_path, target, file_time, title, text, last_pubDate)
 
