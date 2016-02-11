@@ -54,6 +54,21 @@ def save_gas_price(cpc_date, fpcc_date, cpc92, cpc95, cpc98, cpc_diesel, fpcc92,
 		exit()
 
 
+def save_gas_predict(file_time, update_date, title, text):
+	posts = db.gas_predict
+	if posts.find({"update_date": update_date}).count() == 0:
+		doc = {"created_time": file_time, "title": title, "text": text, "update_date": update_date}
+		try:
+			posts.insert_one(doc).inserted_id
+		except Exception as e:
+			print "save to database fail: " + e
+			print "exit..."
+			exit()
+	else:
+		print "A same post existed in database."
+		exit()
+
+
 def save_tw_stock(file_time, title, text, twi_volume, otc_volume, electronic_volume, financial_volume):
 	posts = db.tw_stock
 	if posts.find({"twi_volume": twi_volume, "otc_volume": otc_volume, "electronic_volume": electronic_volume,

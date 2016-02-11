@@ -178,6 +178,8 @@ def gas_predict_editor(crawler_tuple, logs_path, target, no_update_path, article
 	# if change_sign is u'漲' or u'降', remove u'元' in the end
 	if change_sign != u'不調整':
 		change_val = change_val[0:-1]
+	# query mongodb to check whether this post existed or not, if not, save to database
+	db_manager.save_gas_predict(file_time, update_date, title, text)
 	# produce info img
 	process.gas_predict_img(target, file_time, change_sign, change_val)
 	# output txt files and send to slack
