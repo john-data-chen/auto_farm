@@ -1,6 +1,3 @@
-[![Codacy Badge](https://api.codacy.com/project/badge/grade/6996f5d45d4d42c9afa27e69eabc35e3)](https://www.codacy.com)
-[![codecov.io](https://codecov.io/gitlab/ebc/Jarvis_alpha/coverage.svg?token=fCHY6PIvnJ&branch=master)](https://codecov.io/gitlab/ebc/Jarvis_alpha?branch=master)
-
 # Install
 
 ### Package requirement
