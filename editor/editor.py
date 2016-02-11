@@ -121,6 +121,9 @@ def gas_price_editor(crawler_tuple, logs_path, target, no_update_path, articles_
 	text = texts_in_js["text"] % (file_time, cpc92, cpc95, cpc98, cpc_diesel, fpcc92, fpcc95, fpcc98, fpcc_diesel)
 	print text.encode('utf-8').replace("<br>", "")
 
+	# query mongodb to check whether this post existed or not, if not, save to database
+	db_manager.save_gas_price(cpc_date, fpcc_date, cpc92, cpc95, cpc98, cpc_diesel, fpcc92, fpcc95, fpcc98, fpcc_diesel,
+							file_time, title, text)
 	# output txt files and send to slack
 	output.txt_files(articles_path, rss_path, target, file_time, title, text, last_pubDate)
 
