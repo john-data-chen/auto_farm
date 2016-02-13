@@ -49,3 +49,6 @@ where <port> is the port configured in /etc/mongod.conf, 27017 by default.
 
 # Deploy or git pull Jarvis
   -  open config.txt, modify TW_STOCK_OPEN_CHECK = on
+
+# Run meteor
+  -  MONGO_URL=mongodb://localhost:27017/auto_farm_db meteor

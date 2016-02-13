@@ -1,4 +1,4 @@
 {
-  "price_change_text": "%s \n\n依浮動油價機制計算，下週一起汽、柴油價格每公升預估將%s新台幣%s \n\n資料來源：Goodlife油價公告\n註：實際漲跌幅, 以中油/台塑公告為主 ",
-  "no_adjust_text": "%s \n\n依浮動油價機制計算，下週一起汽、柴油價格每公升預估將%s \n\n資料來源：Goodlife油價公告\n註：實際漲跌幅, 以中油/台塑公告為主 "
+  "price_change_text": "%s <br>\n<br>\n依浮動油價機制計算，下週一起汽、柴油價格每公升預估將%s新台幣%s <br>\n<br>\n資料來源：Goodlife油價公告<br>\n註：實際漲跌幅, 以中油/台塑公告為主 <br>",
+  "no_adjust_text": "%s <br>\n<br>\n依浮動油價機制計算，下週一起汽、柴油價格每公升預估將%s <br>\n<br>\n資料來源：Goodlife油價公告<br>\n註：實際漲跌幅, 以中油/台塑公告為主 <br>"
 }
