@@ -22,7 +22,7 @@ last_pubDate = datetime.datetime.now().strftime('%A, %d %b %Y %H:%M:%S')
 # print os.getcwd()
 
 
-def earthquake_editor(crawler_tuple, logs_path, target, no_update_path, articles_path, templates_path, rss_path):
+def earthquake_editor(crawler_tuple, logs_path, target, no_update_path, articles_path, templates_path):
 	date = crawler_tuple[0]
 	# remove un-need space
 	day = crawler_tuple[1].strip()
@@ -52,7 +52,7 @@ def earthquake_editor(crawler_tuple, logs_path, target, no_update_path, articles
 
 	# output img_url
 	# print "img_url in editor.py: " + img_url
-	with open(rss_path + target + "/img_url.txt", "w") as text_file:
+	with open(articles_path + target + "/img_url.txt", "w") as text_file:
 		text_file.write("%s" % img_url)
 	# load template
 	with open(templates_path + target + "_title.json") as js_file:
@@ -70,10 +70,10 @@ def earthquake_editor(crawler_tuple, logs_path, target, no_update_path, articles
 	# query mongodb to check whether this post existed or not, if not, save to database
 	db_manager.save_earthquake(file_time, title, text, img_url)
 	# output txt files and send to slack
-	output.txt_files(articles_path, rss_path, target, file_time, title, text, last_pubDate)
+	output.txt_files(articles_path, target, file_time, title, text, last_pubDate)
 
 
-def gas_price_editor(crawler_tuple, logs_path, target, no_update_path, articles_path, templates_path, rss_path):
+def gas_price_editor(crawler_tuple, logs_path, target, no_update_path, articles_path, templates_path):
 	cpc98 = crawler_tuple[1]
 	cpc95 = crawler_tuple[2]
 	cpc92 = crawler_tuple[3]
@@ -125,10 +125,10 @@ def gas_price_editor(crawler_tuple, logs_path, target, no_update_path, articles_
 	db_manager.save_gas_price(cpc_date, fpcc_date, cpc92, cpc95, cpc98, cpc_diesel, fpcc92, fpcc95, fpcc98, fpcc_diesel,
 							file_time, title, text)
 	# output txt files and send to slack
-	output.txt_files(articles_path, rss_path, target, file_time, title, text, last_pubDate)
+	output.txt_files(articles_path, target, file_time, title, text, last_pubDate)
 
 
-def gas_predict_editor(crawler_tuple, logs_path, target, no_update_path, articles_path, templates_path, rss_path):
+def gas_predict_editor(crawler_tuple, logs_path, target, no_update_path, articles_path, templates_path):
 	update_date = crawler_tuple[0]
 	change_sign = crawler_tuple[1]
 	if change_sign != u'不調整':
@@ -183,10 +183,10 @@ def gas_predict_editor(crawler_tuple, logs_path, target, no_update_path, article
 	# produce info img
 	process.gas_predict_img(target, file_time, change_sign, change_val)
 	# output txt files and send to slack
-	output.txt_files(articles_path, rss_path, target, file_time, title, text, last_pubDate)
+	output.txt_files(articles_path, target, file_time, title, text, last_pubDate)
 
 
-def tw_stock_editor(crawler_tuple, logs_path, target, no_update_path, articles_path, templates_path, rss_path):
+def tw_stock_editor(crawler_tuple, logs_path, target, no_update_path, articles_path, templates_path):
 	twi = crawler_tuple[0]
 	twi_ch_sign = crawler_tuple[1]
 	twi_ch_pt = crawler_tuple[2]
@@ -257,4 +257,4 @@ def tw_stock_editor(crawler_tuple, logs_path, target, no_update_path, articles_p
 						electronic, electronic_ch_sign, electronic_ch_pt, electronic_volume,
 						financial, financial_ch_sign, financial_ch_pt, financial_volume)
 	# output txt files and send to slack
-	output.txt_files(articles_path, rss_path, target, file_time, title, text, last_pubDate)
+	output.txt_files(articles_path, target, file_time, title, text, last_pubDate)

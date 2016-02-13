@@ -36,7 +36,6 @@ logs_path = config_parser.get('FOLDER_PATH', 'LOGS_PATH')
 no_update_path = config_parser.get('FOLDER_PATH', 'NO_UPDATE_PATH')
 articles_path = config_parser.get('FOLDER_PATH', 'ARTICLES_PATH')
 templates_path = config_parser.get('FOLDER_PATH', 'TEMPLATES_PATH')
-rss_path = config_parser.get('FOLDER_PATH', 'RSS_PATH')
 tts_mp3_path = config_parser.get('FOLDER_PATH', 'TTS_MP3_PATH')
 info_img_path = config_parser.get('FOLDER_PATH', 'INFO_IMG_PATH')
 max_logs = config_parser.getint('LOG', 'MAX_LOGS')
@@ -46,7 +45,7 @@ max_info_img = config_parser.getint('LOG', 'MAX_INFO_IMG')
 targets_with_img = config_parser.get('TARGET_TYPE', 'TARGETS_WITH_IMG').split(", ")
 
 # auto check and clean
-check_folders(logs_path, no_update_path, articles_path, rss_path, tts_mp3_path, info_img_path, target)
+check_folders(logs_path, no_update_path, articles_path, tts_mp3_path, info_img_path, target)
 clean_logs(logs_path, target, no_update_path, max_logs)
 clean_articles(articles_path, target, max_old_articles)
 clean_mp3(tts_mp3_path, target, max_mp3)
@@ -59,7 +58,7 @@ if target == 'earthquake':
 	detail_url = config_parser.get('URL', 'EARTHQUAKE_DETAIL')
 	earthquake_editor(
 			earthquake_crawler(total_url, detail_url),
-			logs_path, target, no_update_path, articles_path, templates_path, rss_path)
+			logs_path, target, no_update_path, articles_path, templates_path)
 
 if target in targets_with_img:
 	# clean old img at first
@@ -76,16 +75,16 @@ if target in targets_with_img:
 
 		gas_price_editor(
 				gas_price_crawler(cpc_url, fpcc_url),
-				logs_path, target, no_update_path, articles_path, templates_path, rss_path)
+				logs_path, target, no_update_path, articles_path, templates_path)
 
 	elif target == 'gas_predict':
 		url = config_parser.get('URL', 'GAS_PREDICT')
 		gas_predict_editor(
 				gas_predict_crawler(url),
-				logs_path, target, no_update_path, articles_path, templates_path, rss_path)
+				logs_path, target, no_update_path, articles_path, templates_path)
 
 	elif target == 'tw_stock':
 		url = config_parser.get('URL', 'TW_STOCK')
 		tw_stock_editor(
 				tw_stock_crawler(logs_path, no_update_path, target, url),
-				logs_path, target, no_update_path, articles_path, templates_path, rss_path)
+				logs_path, target, no_update_path, articles_path, templates_path)

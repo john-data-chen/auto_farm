@@ -4,7 +4,7 @@ from slack.msg_sender import *
 from ConfigParser import SafeConfigParser
 
 
-def check_folders(logs_path, no_update_path, articles_path, rss_path, tts_mp3_path, info_img_path, folder_name):
+def check_folders(logs_path, no_update_path, articles_path, tts_mp3_path, info_img_path, folder_name):
 	# check log's folders
 	if not os.path.exists(logs_path):
 		os.mkdir(logs_path)
@@ -17,11 +17,6 @@ def check_folders(logs_path, no_update_path, articles_path, rss_path, tts_mp3_pa
 		os.mkdir(articles_path)
 	if not os.path.exists(articles_path + folder_name):
 		os.mkdir(articles_path + folder_name)
-	# check rss' folders
-	if not os.path.exists(rss_path):
-		os.mkdir(rss_path)
-	if not os.path.exists(rss_path + folder_name):
-		os.mkdir(rss_path + folder_name)
 	# check TTS mp3's folder
 	if not os.path.exists(tts_mp3_path):
 		os.mkdir(tts_mp3_path)
