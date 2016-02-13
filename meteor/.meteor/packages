@@ -20,3 +20,5 @@ mquandalle:jade
 coffeescript
 iron:router
 twbs:bootstrap
+accounts-facebook
+ian:accounts-ui-bootstrap-3
