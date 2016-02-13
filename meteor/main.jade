@@ -1,0 +1,76 @@
+head
+  title Auto Farm
+
+
+template(name="indexPage")
+  .container
+    h2 Index Page
+
+template(name="eqPage")
+  .container
+    h2 Earthquake
+    hr
+    each earthquakeMsgs
+      h2 {{title}}
+      p {{text}}
+      hr
+
+template(name="twsPage")
+  .container
+    h2 TW_Stock
+    hr
+    each tw_stockMsgs
+      h2 {{title}}
+      p {{text}}
+      hr
+
+template(name="gpPage")
+  .container
+    h2 Gas_Price
+    hr
+    each gas_priceMsgs
+      h2 {{title}}
+      p {{text}}
+      hr
+
+template(name="gppPage")
+  .container
+    h2 Gas_Predict
+    hr
+    each gas_predictMsgs
+      h2 {{title}}
+      p {{text}}
+      hr
+
+
+template(name="layout")
+  +navBar
+  +yield
+
+template(name="navBar")
+  .navbar.navbar-inverse.navbar-fixed-top
+    .container
+      .navbar-header
+        button.navbar-toggle(type="button",data-toggle="collapse",data-target=".navbar-collapse")
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+
+        a.navbar-brand(href="{{pathFor 'index'}}") Auto Farm
+      .collapse.navbar-collapse
+        ul.nav.navbar-nav
+          li.nav.navbar-nav
+            a(href="{{pathFor 'earthquake'}}") Earthquake
+
+          li.nav.navbar-nav
+            a(href="{{pathFor 'tw_stock'}}") TW-Stock
+
+          li.nav.navbar-nav
+            a(href="{{pathFor 'gas_price'}}") Gas-Price
+
+          li.nav.navbar-nav
+            a(href="{{pathFor 'gas_predict'}}") Gas-Predict
+
+        //- ul.nav.navbar-nav.navbar-right
+        //-   li
+        //-     +loginButtons
