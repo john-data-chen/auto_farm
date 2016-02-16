@@ -36,11 +36,13 @@ class Test_Gas_Price_Crawler(object):
 		crawler = gas_predict_crawler(url)
 		return crawler
 
+	@pytest.mark.disable(reason='Test page changes too often')
 	def test_change_sign(self, crawler):
 		change_sign = crawler[1]
 		print ": " + change_sign
 		assert change_sign == u'漲' or change_sign == u'降' or change_sign == u'不調整'
 
+	@pytest.mark.disable(reason='Test page changes too often')
 	def test_change_val(self, crawler):
 		change_sign = crawler[1]
 		if change_sign != u'不調整':
