@@ -322,12 +322,12 @@ def tw_stock_img(target, file_time, twi, twi_ch_sign, twi_ch_pt, twi_ch_percent,
 
 	# draw white texts
 	draw.ink = 255 + 255 * 256 + 255 * 256 * 256
-	# draw volume numbers, remove u"億" in the end
-	draw.text((470, 63), twi_volume[:-1], font=arial_font_32)
+	# draw volume numbers
+	draw.text((470, 63), twi_volume, font=arial_font_32)
 	# for below indexes
-	draw.text((60, 260), otc_volume[:-1], font=arial_font_30)
-	draw.text((250, 260), electronic_volume[:-1], font=arial_font_30)
-	draw.text((455, 260), financial_volume[:-1], font=arial_font_30)
+	draw.text((60, 260), otc_volume, font=arial_font_30)
+	draw.text((250, 260), electronic_volume, font=arial_font_30)
+	draw.text((455, 260), financial_volume, font=arial_font_30)
 
 	# draw u"成交" and u"億"
 	# for twi
