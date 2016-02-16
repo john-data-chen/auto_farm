@@ -297,18 +297,15 @@ def tw_stock_crawler(logs_path, no_update_path, target, url):
 
 		data = []
 		for span in soup.find_all('span'):
-			# print span.text
-			data.append(span.text)
+			# print span.text.decode('utf-8')
+			data.append(span.text.decode('utf-8'))
 		try:
-			twi_ch_sign = data[2]
-			twi_volume = data[3]
-			otc_ch_sign = data[4]
-			otc_volume = data[5]
-			electronic_ch_sign = data[6]
-			electronic_volume = data[7]
-			financial_ch_sign = data[8]
-			financial_volume = data[9]
+			twi_volume = data[3][:-1]
+			otc_volume = data[5][:-1]
+			electronic_volume = data[7][:-1]
+			financial_volume = data[9][:-1]
 
+			# debug message
 			"""
 			# debug message
 			print "twi_ch_sign : " + twi_ch_sign
@@ -330,7 +327,32 @@ def tw_stock_crawler(logs_path, no_update_path, target, url):
 				time.sleep(60)
 
 		except Exception as e:
-			error = "assign change sign and volume values has error:\n" + str(e)
+			error = "assign volume values has error:\n" + str(e)
+			print error
+			assign_values_error(error)
+
+	data = []
+	counter = 0
+	for td in soup.find_all('td'):
+		# print '{counter}: {lst}'.format(counter=counter, lst=td.get("class"))
+		data.append(td.get("class"))
+		counter += 1
+	try:
+		twi_ch_sign = data[28][1]
+		otc_ch_sign = data[32][1]
+		electronic_ch_sign = data[36][1]
+		financial_ch_sign = data[40][1]
+
+		"""
+		# debug message
+		print "twi_ch_sign : " + twi_ch_sign
+		print "otc_ch_sign : " + otc_ch_sign
+		print "electronic_ch_sign: " + electronic_ch_sign
+		print "financial_ch_sign: " + financial_ch_sign
+		"""
+
+	except Exception as e:
+			error = "assign ch_sign values has error:\n" + str(e)
 			print error
 			assign_values_error(error)
 
@@ -362,7 +384,7 @@ def tw_stock_crawler(logs_path, no_update_path, target, url):
 	for td in soup.find_all('td'):
 		log = str(counter) + ": " + td.text + "\n"
 
-		# fix CI issue
+		# CI can't write and read files
 		"""
 		with open(logs_path + target + no_update_path + "td.text_logs.txt", "a") as text_file:
 			text_file.write("%s" % log)

@@ -189,21 +189,37 @@ def gas_predict_editor(crawler_tuple, logs_path, target, no_update_path, article
 def tw_stock_editor(crawler_tuple, logs_path, target, no_update_path, articles_path, templates_path):
 	twi = crawler_tuple[0]
 	twi_ch_sign = crawler_tuple[1]
+	if twi_ch_sign == u'up':
+		twi_ch_sign = u'漲'
+	elif twi_ch_sign == u'down':
+		twi_ch_sign = u'跌'
 	twi_ch_pt = crawler_tuple[2]
 	twi_ch_percent = str(round(float(twi_ch_pt) / (float(twi) - float(twi_ch_pt)) * 100, 2)) + "%"
 	twi_volume = crawler_tuple[3]
 	otc = crawler_tuple[4]
 	otc_ch_sign = crawler_tuple[5]
+	if otc_ch_sign == u'up':
+		otc_ch_sign = u'漲'
+	elif otc_ch_sign == u'down':
+		otc_ch_sign = u'跌'
 	otc_ch_pt = crawler_tuple[6]
 	otc_ch_percent = str(round(float(otc_ch_pt) / (float(otc) - float(otc_ch_pt)) * 100, 2)) + "%"
 	otc_volume = crawler_tuple[7]
 	electronic = crawler_tuple[8]
 	electronic_ch_sign = crawler_tuple[9]
+	if electronic_ch_sign == u'up':
+		electronic_ch_sign = u'漲'
+	elif electronic_ch_sign == u'down':
+		electronic_ch_sign = u'跌'
 	electronic_ch_pt = crawler_tuple[10]
 	electronic_ch_percent = str(round(float(electronic_ch_pt) / (float(electronic) - float(electronic_ch_pt)) * 100, 2)) + "%"
 	electronic_volume = crawler_tuple[11]
 	financial = crawler_tuple[12]
 	financial_ch_sign = crawler_tuple[13]
+	if financial_ch_sign == u'up':
+		financial_ch_sign = u'漲'
+	elif financial_ch_sign == u'down':
+		financial_ch_sign = u'跌'
 	financial_ch_pt = crawler_tuple[14]
 	financial_ch_percent = str(round(float(financial_ch_pt) / (float(financial) - float(financial_ch_pt)) * 100, 2)) + "%"
 	financial_volume = crawler_tuple[15]
